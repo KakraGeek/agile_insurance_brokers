@@ -95,7 +95,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
             </div>
             
             {/* Centered Tagline Overlay */}
-            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-500 ${
+            <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-500 ${
               index === currentSlide && showTagline ? 'opacity-100' : 'opacity-0'
             }`}>
               <div className={`bg-primary/90 text-white px-6 py-4 md:px-8 md:py-6 shadow-xl backdrop-blur-sm rounded-lg border border-white/20 transition-all duration-700 ${
