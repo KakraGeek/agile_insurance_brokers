@@ -29,7 +29,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center min-h-16 md:min-h-20 py-2">
           {/* Logo */}
-          <div className="flex-shrink-0 max-w-[60%] md:max-w-none">
+          <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <div className="flex items-center justify-center">
                 <Image
@@ -37,13 +37,13 @@ export default function Navigation() {
                   alt="Agile Insurance Logo"
                   width={80}
                   height={80}
-                  className="w-20 h-20 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                  className="w-16 h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                   priority
                 />
               </div>
-              <div className="ml-2 md:ml-3">
-                <h1 className="text-[6px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
-                <p className="text-[4px] md:text-xs text-secondary leading-none">Brokers Ltd</p>
+              <div className="ml-1 md:ml-3">
+                <h1 className="text-[5px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
+                <p className="text-[3px] md:text-xs text-secondary leading-none">Brokers Ltd</p>
               </div>
             </Link>
           </div>
@@ -135,7 +135,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex-shrink-0 z-50" style={{ minWidth: '48px' }}>
+          <div className="md:hidden flex-shrink-0 z-50 ml-4" style={{ minWidth: '48px' }}>
             <Button
               variant="ghost"
               size="sm"
