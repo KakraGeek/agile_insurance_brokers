@@ -31,13 +31,13 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0 max-w-[60%] md:max-w-none">
             <Link href="/" className="flex items-center">
-              <div className="w-20 h-20 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center relative">
+              <div className="flex items-center justify-center">
                 <Image
                   src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
                   alt="Agile Insurance Logo"
-                  fill
-                  sizes="(max-width: 768px) 80px, (max-width: 1024px) 64px, 80px"
-                  className="object-contain"
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
                   priority
                 />
               </div>
