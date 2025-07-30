@@ -1,0 +1,164 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+
+interface HeroSlide {
+  id: number;
+  image: string;
+  tagline: string;
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+interface HeroSliderProps {
+  slides: HeroSlide[];
+  autoPlay?: boolean;
+  interval?: number;
+}
+
+export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }: HeroSliderProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showTagline, setShowTagline] = useState(false);
+
+  // Auto-play functionality with proper timing
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    const showTaglineTimer = setTimeout(() => {
+      setShowTagline(true);
+    }, 1000); // Show tagline 1 second after image appears
+
+    const hideTaglineTimer = setTimeout(() => {
+      setShowTagline(false);
+    }, interval - 1000); // Hide tagline 1 second before next slide
+
+    const nextSlideTimer = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, interval);
+
+    return () => {
+      clearTimeout(showTaglineTimer);
+      clearTimeout(hideTaglineTimer);
+      clearTimeout(nextSlideTimer);
+    };
+  }, [autoPlay, interval, slides.length, currentSlide]);
+
+  // Reset tagline state when slide changes
+  useEffect(() => {
+    setShowTagline(false);
+  }, [currentSlide]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  if (!slides || slides.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="relative h-96 md:h-[500px] lg:h-[600px] overflow-hidden">
+      {/* Slides */}
+      <div className="relative w-full h-full">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* Background Image */}
+            <div className="absolute inset-0 flex items-center justify-center z-0">
+              <Image 
+                src={slide.image}
+                alt={`Slide ${slide.id}`}
+                width={1200}
+                height={600}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                className="max-w-full max-h-full object-contain"
+                priority={index === 0}
+                quality={85}
+              />
+            </div>
+            
+            {/* Centered Tagline Overlay */}
+            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-500 ${
+              index === currentSlide && showTagline ? 'opacity-100' : 'opacity-0'
+            }`}>
+              <div className={`bg-primary/90 text-white px-6 py-4 md:px-8 md:py-6 shadow-xl backdrop-blur-sm rounded-lg border border-white/20 transition-all duration-700 ${
+                index === currentSlide && showTagline ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+              }`}>
+                <p className="text-sm md:text-lg lg:text-xl font-bold text-center max-w-xs md:max-w-md">
+                  {slide.tagline}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="h-8 w-8" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="h-8 w-8" />
+      </button>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-4 h-4 rounded-full transition-all duration-300 border-2 ${
+              index === currentSlide
+                ? "bg-black border-black scale-125 shadow-lg"
+                : "bg-black/40 border-black/60 hover:bg-black/60 hover:border-black/80 hover:scale-110"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Slide Counter */}
+      <div className="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm font-medium border border-black/30 z-30">
+        {currentSlide + 1} / {slides.length}
+      </div>
+
+      {/* Progress Bar */}
+      {autoPlay && (
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20">
+          <div
+            className="h-full bg-white transition-all duration-1000 ease-linear"
+            style={{
+              width: `${((currentSlide + 1) / slides.length) * 100}%`,
+            }}
+          />
+        </div>
+      )}
+    </section>
+  );
+} 
