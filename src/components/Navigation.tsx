@@ -25,25 +25,25 @@ export default function Navigation() {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50" data-mobile-nav="v2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center min-h-16 md:min-h-20 py-2">
           {/* Logo */}
           <div className="flex-shrink-0 max-w-[60%] md:max-w-none">
             <Link href="/" className="flex items-center">
-              <div className="w-16 h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center relative">
+              <div className="w-20 h-20 md:w-16 md:h-16 lg:w-20 lg:h-20 flex items-center justify-center relative">
                 <Image
                   src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
                   alt="Agile Insurance Logo"
                   fill
-                  sizes="(max-width: 768px) 64px, (max-width: 1024px) 64px, 80px"
+                  sizes="(max-width: 768px) 80px, (max-width: 1024px) 64px, 80px"
                   className="object-contain"
                   priority
                 />
               </div>
               <div className="ml-2 md:ml-3">
-                <h1 className="text-[8px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap">Agile Insurance</h1>
-                <p className="text-[6px] md:text-xs text-secondary">Brokers Ltd</p>
+                <h1 className="text-[6px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
+                <p className="text-[4px] md:text-xs text-secondary leading-none">Brokers Ltd</p>
               </div>
             </Link>
           </div>
@@ -135,12 +135,13 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex-shrink-0 z-50">
+          <div className="md:hidden flex-shrink-0 z-50" style={{ minWidth: '48px' }}>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 !block"
+              style={{ display: 'block !important' }}
             >
               <Menu className="h-5 w-5" />
             </Button>
