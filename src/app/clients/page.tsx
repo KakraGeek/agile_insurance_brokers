@@ -95,7 +95,7 @@ export default function ClientsPage() {
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Building strong relationships with trusted partners and serving diverse clients 
-              across Ghana's economy with comprehensive insurance solutions.
+              across Ghana&apos;s economy with comprehensive insurance solutions.
             </p>
           </div>
         </div>

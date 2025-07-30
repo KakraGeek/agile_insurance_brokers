@@ -215,7 +215,7 @@ ${formData.message}
   };
 
   const hasErrors = Object.keys(errors).length > 0;
-  const isFormValid = !hasErrors && Object.values(formData).every(value => value.trim() !== '');
+
 
   return (
     <div className="min-h-screen">
@@ -227,7 +227,7 @@ ${formData.message}
               Contact <span className="text-primary">Us</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Get in touch with our team of insurance professionals. We're here to help you 
+              Get in touch with our team of insurance professionals. We&apos;re here to help you 
               find the right coverage for your needs.
             </p>
           </div>
@@ -532,7 +532,7 @@ ${formData.message}
                       <div className="p-4 bg-green-50 border border-green-200 rounded-md" role="alert">
                         <p className="text-green-800 text-sm flex items-center">
                           <CheckCircle className="mr-2 h-4 w-4" />
-                          Thank you! Your message has been sent. We'll get back to you soon.
+                          Thank you! Your message has been sent. We&apos;ll get back to you soon.
                         </p>
                       </div>
                     )}

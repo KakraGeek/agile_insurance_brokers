@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Users, Award, Heart, Handshake, Target, Zap, Star } from "lucide-react";
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
@@ -81,7 +81,7 @@ export default function HomePage() {
               </p>
               <p className="text-gray-600 mb-6">
                 Our mandate allows us to transact business with all registered insurance companies in Ghana.  
-                Our brokerage services come to you at "NO COST TO YOU" and are designed to enhance your risk 
+                Our brokerage services come to you at &quot;NO COST TO YOU&quot; and are designed to enhance your risk 
                 management strategies while ensuring efficiency and cost savings.
               </p>
               <Link href="/about">
