@@ -135,7 +135,7 @@ export default function ContactPage() {
 
     // Remove undefined errors
     const filteredErrors = Object.fromEntries(
-      Object.entries(newErrors).filter(([_, value]) => value !== undefined)
+      Object.entries(newErrors).filter(([, value]) => value !== undefined)
     ) as FormErrors;
 
     setErrors(filteredErrors);
