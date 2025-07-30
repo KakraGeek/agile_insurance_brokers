@@ -42,7 +42,7 @@ export default function Navigation() {
                 />
               </div>
               <div className="ml-1 md:ml-3">
-                <h1 className="text-[5px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
+                <h1 className="text-[3px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
                 <p className="text-[3px] md:text-xs text-secondary leading-none">Brokers Ltd</p>
               </div>
             </Link>
