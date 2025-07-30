@@ -95,7 +95,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
             </div>
             
             {/* Centered Tagline Overlay */}
-            <div className={`absolute inset-0 flex items-center justify-center z-10 transition-opacity duration-500 ${
+            <div className={`absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-500 ${
               index === currentSlide && showTagline ? 'opacity-100' : 'opacity-0'
             }`}>
               <div className={`bg-primary/90 text-white px-6 py-4 md:px-8 md:py-6 shadow-xl backdrop-blur-sm rounded-lg border border-white/20 transition-all duration-700 ${
@@ -113,27 +113,27 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
+        className="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="h-8 w-8" />
+        <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
+        className="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
         aria-label="Next slide"
       >
-        <ChevronRight className="h-8 w-8" />
+        <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
+      <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 border-2 ${
+            className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 border-2 ${
               index === currentSlide
                 ? "bg-black border-black scale-125 shadow-lg"
                 : "bg-black/40 border-black/60 hover:bg-black/60 hover:border-black/80 hover:scale-110"
@@ -144,7 +144,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute top-6 right-6 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm font-medium border border-black/30 z-30">
+      <div className="absolute top-4 md:top-6 right-4 md:right-6 bg-black/60 backdrop-blur-md text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium border border-black/30 z-30">
         {currentSlide + 1} / {slides.length}
       </div>
 
