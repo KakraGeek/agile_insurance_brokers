@@ -27,22 +27,22 @@ export default function Navigation() {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-24 h-24 flex items-center justify-center relative">
+              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex items-center justify-center relative">
                 <Image
                   src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
                   alt="Agile Insurance Logo"
                   fill
-                  sizes="96px"
+                  sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 96px"
                   className="object-contain"
                   priority
                 />
               </div>
-              <div className="ml-3">
-                <h1 className="text-xl font-bold text-primary">Agile Insurance</h1>
+              <div className="ml-2 md:ml-3">
+                <h1 className="text-sm md:text-lg lg:text-xl font-bold text-primary">Agile Insurance</h1>
                 <p className="text-xs text-secondary">Brokers Ltd</p>
               </div>
             </Link>
@@ -135,13 +135,14 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             </Button>
           </div>
         </div>
