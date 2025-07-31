@@ -152,7 +152,7 @@ export default function Navigation() {
               <div className="ml-1 min-w-0">
                 {/* Full company name with proper spacing */}
                 <h1 className="text-[8px] font-bold text-primary whitespace-nowrap leading-none sm:text-[9px] md:text-[10px]">Agile Insurance</h1>
-                <p className="text-[8px] text-secondary leading-none sm:text-[9px] md:text-[10px]">Brokers Ltd</p>
+                <p className="text-[20px] text-secondary leading-none sm:text-[32px] md:text-[36px]">Brokers Ltd</p>
               </div>
             </Link>
           </div>

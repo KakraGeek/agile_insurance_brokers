@@ -53,13 +53,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
     setShowTagline(false);
   }, [currentSlide]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -112,20 +106,30 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
 
 
 
-      {/* Dots Indicator */}
-      <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-30">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 border-2 ${
-              index === currentSlide
-                ? "bg-black border-black scale-125 shadow-lg"
-                : "bg-black/40 border-black/60 hover:bg-black/60 hover:border-black/80 hover:scale-110"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      {/* Modern Slider Navigation */}
+      <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="flex items-center space-x-1 md:space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className="group relative"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <div className={`w-8 h-1 md:w-12 md:h-1.5 rounded-full transition-all duration-500 ${
+                index === currentSlide
+                  ? "bg-primary shadow-lg"
+                  : "bg-secondary/80 hover:bg-secondary"
+              }`}>
+                <div className={`h-full rounded-full transition-all duration-500 ${
+                  index === currentSlide
+                    ? "bg-primary w-full"
+                    : "bg-secondary w-0 group-hover:w-full"
+                }`} />
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Slide Counter */}
