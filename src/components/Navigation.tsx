@@ -154,11 +154,11 @@ export default function Navigation() {
               />
               <div className="ml-1 min-w-0">
                 {/* Full company name with proper spacing */}
-                <h1 className="text-[8px] font-bold whitespace-nowrap leading-none sm:text-[9px] md:text-[10px]">
+                <h1 className="text-[9px] font-bold whitespace-nowrap leading-none sm:text-[10px] md:text-[11px]">
                   <span className="text-primary">Agile</span>{" "}
                   <span className="text-secondary">Insurance</span>
                 </h1>
-                <p className="text-[20px] text-secondary leading-none sm:text-[32px] md:text-[36px]">Brokers Ltd</p>
+                <p className="text-[18px] text-secondary leading-none sm:text-[30px] md:text-[34px]">Brokers Ltd</p>
               </div>
             </Link>
           </div>

@@ -130,22 +130,22 @@ export default function HomePage() {
         slides={[
           {
             id: 1,
-            image: "/Images/optimized/Hero Slider Images/Hero1_resized.webp",
+            image: "/Images/Hero Slider Images/Optimised/new_Hero1_result.webp",
             tagline: "Protecting What Matters Most – Your Family, Your Future"
           },
           {
             id: 2,
-            image: "/Images/optimized/Hero Slider Images/Hero2_resized.webp",
+            image: "/Images/Hero Slider Images/Optimised/new_Hero2_result.webp",
             tagline: "Expert Advice That Drives Confident Decisions"
           },
           {
             id: 3,
-            image: "/Images/optimized/Hero Slider Images/Hero3_resized1.webp",
+            image: "/Images/Hero Slider Images/Optimised/new_Hero3_result.webp",
             tagline: "Reliable and Speedy Support at your Point of Need"
           },
           {
             id: 4,
-            image: "/Images/optimized/Hero Slider Images/Hero4_resized.webp",
+            image: "/Images/Hero Slider Images/Optimised/new_Hero4_result.webp",
             tagline: "Powering Business Growth with Trusted Coverage"
           }
         ]}

@@ -22,29 +22,29 @@ interface FormErrors {
 // Validation functions
 const validateEmail = (email: string): string | undefined => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email) return "Email is required";
-  if (!emailRegex.test(email)) return "Please enter a valid email address";
+  if (!email) return "Email address is required - please enter your email";
+  if (!emailRegex.test(email)) return "Please enter a valid email address (e.g., john.doe@example.com)";
   return undefined;
 };
 
 const validatePhone = (phone: string): string | undefined => {
   const phoneRegex = /^(\+233|0)?[0-9]{9}$/;
-  if (!phone) return "Phone number is required";
+  if (!phone) return "Phone number is required - please enter your contact number";
   if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
-    return "Please enter a valid Ghanaian phone number";
+    return "Please enter a valid Ghanaian phone number (e.g., +233244104087 or 0244104087)";
   }
   return undefined;
 };
 
 const validateRequired = (value: string, fieldName: string): string | undefined => {
-  if (!value.trim()) return `${fieldName} is required`;
+  if (!value.trim()) return `${fieldName} is required - please fill in this field`;
   return undefined;
 };
 
 const validateMessage = (message: string): string | undefined => {
-  if (!message.trim()) return "Message is required";
-  if (message.trim().length < 10) return "Message must be at least 10 characters long";
-  if (message.trim().length > 1000) return "Message must be less than 1000 characters";
+  if (!message.trim()) return "Message is required - please tell us about your insurance needs";
+  if (message.trim().length < 10) return "Message is too short - please provide at least 10 characters describing your needs";
+  if (message.trim().length > 1000) return "Message is too long - please keep it under 1000 characters";
   return undefined;
 };
 
@@ -357,7 +357,7 @@ ${formData.message}
                           value={formData.firstName}
                           onChange={handleInputChange}
                           onBlur={() => handleBlur('firstName')}
-                          placeholder="Enter your first name"
+                          placeholder="Enter your first name (e.g., John)"
                           className={`mt-1 ${errors.firstName && touched.firstName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                           aria-invalid={errors.firstName ? 'true' : 'false'}
                           aria-describedby={errors.firstName ? 'firstName-error' : ''}
@@ -380,7 +380,7 @@ ${formData.message}
                           value={formData.lastName}
                           onChange={handleInputChange}
                           onBlur={() => handleBlur('lastName')}
-                          placeholder="Enter your last name"
+                          placeholder="Enter your last name (e.g., Doe)"
                           className={`mt-1 ${errors.lastName && touched.lastName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                           aria-invalid={errors.lastName ? 'true' : 'false'}
                           aria-describedby={errors.lastName ? 'lastName-error' : ''}
@@ -511,7 +511,7 @@ ${formData.message}
                         value={formData.message}
                         onChange={handleInputChange}
                         onBlur={() => handleBlur('message')}
-                        placeholder="Tell us about your insurance needs... (10-1000 characters)"
+                        placeholder="Tell us about your insurance needs, questions, or requirements... (minimum 10 characters)"
                         className={`mt-1 min-h-[120px] ${errors.message && touched.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                         aria-invalid={errors.message ? 'true' : 'false'}
                                                  aria-describedby={errors.message ? 'message-error' : ''}
@@ -532,7 +532,7 @@ ${formData.message}
                       <div className="p-4 bg-green-50 border border-green-200 rounded-md" role="alert">
                         <p className="text-green-800 text-sm flex items-center">
                           <CheckCircle className="mr-2 h-4 w-4" />
-                          Thank you! Your message has been sent. We&apos;ll get back to you soon.
+                          Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
                         </p>
                       </div>
                     )}
@@ -541,7 +541,7 @@ ${formData.message}
                       <div className="p-4 bg-red-50 border border-red-200 rounded-md" role="alert">
                         <p className="text-red-800 text-sm flex items-center">
                           <AlertCircle className="mr-2 h-4 w-4" />
-                          There was an error sending your message. Please try again or contact us directly at +233 244 104 087.
+                          Unable to send message automatically. Please contact us directly at +233 244 104 087 or email info@agilebrokersgh.com
                         </p>
                       </div>
                     )}
@@ -556,18 +556,39 @@ ${formData.message}
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
 
+                    <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded-md">
+                      <p className="font-medium mb-1">💡 Helpful tips:</p>
+                      <ul className="space-y-1">
+                        <li>• Include specific details about your insurance needs in your message</li>
+                        <li>• Mention any existing policies or coverage requirements</li>
+                        <li>• Let us know your preferred contact time if you choose phone/SMS</li>
+                        <li>• We&apos;ll respond within 24 hours during business days</li>
+                      </ul>
+                    </div>
+
                     {hasErrors && (
                       <div id="form-errors" className="p-3 bg-red-50 border border-red-200 rounded-md">
                         <p className="text-red-800 text-sm font-medium mb-2">
-                          Please fix the following errors:
+                          Please fix the following field errors before submitting:
                         </p>
                         <ul className="text-red-700 text-sm space-y-1">
-                          {Object.entries(errors).map(([field, error]) => (
-                            <li key={field} className="flex items-center">
-                              <AlertCircle className="mr-1 h-3 w-3" />
-                              {error}
-                            </li>
-                          ))}
+                          {Object.entries(errors).map(([field, error]) => {
+                            const fieldLabels: Record<string, string> = {
+                              firstName: 'First Name',
+                              lastName: 'Last Name',
+                              email: 'Email Address',
+                              phone: 'Phone Number',
+                              insuranceType: 'Insurance Type',
+                              preferredContact: 'Preferred Contact Method',
+                              message: 'Message'
+                            };
+                            return (
+                              <li key={field} className="flex items-center">
+                                <AlertCircle className="mr-1 h-3 w-3 flex-shrink-0" />
+                                <span><strong>{fieldLabels[field]}:</strong> {error}</span>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     )}

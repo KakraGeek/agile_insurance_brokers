@@ -16,80 +16,80 @@ export default function ProductsPage() {
       title: "Motor Insurance",
       description: "Comprehensive coverage for your vehicles",
       features: ["Third Party Only", "Third Party, Fire & Theft", "Comprehensive"],
-      image: "/Images/optimized/motor insurance.webp"
+      image: "/Images/Product Images/Optimised/new_motor insurance_result.webp"
     },
     {
       icon: Ship,
       title: "Marine Insurance",
       description: "Covers loss or damage to ships, cargo, and transport during shipment.",
-      image: "/Images/optimized/marine insurance.webp"
+      image: "/Images/Product Images/Optimised/new_marine insurance_result.webp"
     },
     {
       icon: Users,
       title: "Workmen's Compensation",
       description: "Coverage for employer's liability due to injury or occupational disease.",
-      image: "/Images/optimized/workmen.webp"
+      image: "/Images/Product Images/Optimised/new_workmen_result.webp"
     },
     {
       icon: Shield,
       title: "Public Liability",
       description: "Liability for third-party injury/property damage (mandatory under Act 1061).",
-      image: "/Images/optimized/public liability.webp"
+      image: "/Images/Product Images/Optimised/new_public liability_result.webp"
     },
     {
       icon: Heart,
       title: "Health Insurance",
       description: "Group and individual plans: OPD, surgery, hospitalization, evacuation, etc.",
-      image: "/Images/optimized/health insurance.webp"
+      image: "/Images/Product Images/Optimised/new_health insurance_result.webp"
     },
     {
       icon: Building,
       title: "Commercial Building Insurance",
       description: "Mandatory cover for fire, collapse, earthquake, flood, etc.",
-      image: "/Images/optimized/commercial building.webp"
+      image: "/Images/Product Images/Optimised/new_commercial building_result.webp"
     },
     {
       icon: Briefcase,
       title: "Group Life Comprehensive Plan",
       description: "Customizable 24-hour coverage for employee benefits.",
-      image: "/Images/optimized/group life.webp"
+      image: "/Images/Product Images/Optimised/new_group life_result.webp"
     },
     {
       icon: Package,
       title: "Assets All-Risk Insurance",
       description: "Extensive protection against theft, damage, flood, breakdown, etc.",
-      image: "/Images/optimized/assets all risk.webp"
+      image: "/Images/Product Images/Optimised/new_assets all risk_result.webp"
     },
     {
       icon: Shield,
       title: "Combined Fire & Burglary",
       description: "Business protection against both fire and theft.",
-      image: "/Images/optimized/combined fire & burglary.webp"
+      image: "/Images/Product Images/Optimised/new_combined fire & burglary_result.webp"
     },
     {
       icon: Plane,
       title: "Goods-in-Transit Insurance",
       description: "Covers cargo in transit against fire, theft, collision, natural disasters.",
-      image: "/Images/optimized/goods-in-transit.webp"
+      image: "/Images/Product Images/Optimised/new_goods-in-transit_result.webp"
     },
     {
       icon: FileText,
       title: "Insurance Bonds/Guarantees",
       description: "Comprehensive bonding solutions",
       features: ["Bid Bonds", "Performance Bonds", "Advance Mobilization Bonds"],
-      image: "/Images/optimized/insurance bonds.webp"
+      image: "/Images/Product Images/Optimised/new_insurance bonds_result.webp"
     },
     {
       icon: Plane,
       title: "Travel Insurance",
       description: "Cover for baggage, delays, missed connections, emergency medical.",
-      image: "/Images/optimized/travel insurance.webp"
+      image: "/Images/Product Images/Optimised/new_travel insurance_result.webp"
     },
     {
       icon: UserCheck,
       title: "Professional Indemnity",
       description: "Covers professionals like doctors, nurses, etc.",
-      image: "/Images/optimized/professional indemnity.webp"
+      image: "/Images/Product Images/Optimised/new_professional indemnity_result.webp"
     }
   ];
 
@@ -122,7 +122,7 @@ export default function ProductsPage() {
                       alt={product.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover hover:scale-105 transition-transform duration-300"
+                      className="object-contain hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
