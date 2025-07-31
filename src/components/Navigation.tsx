@@ -196,7 +196,7 @@ export default function Navigation() {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    About Us
+                    Who We Are
                   </Link>
                   <Link
                     href="/about/services"
