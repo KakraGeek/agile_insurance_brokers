@@ -34,7 +34,7 @@ export default function Navigation() {
             <Link href="/" className="flex items-center">
               <div className="flex items-center justify-center">
                 <Image
-                  src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
+                  src="/Images/Logos/Logo-removebg-preview.png"
                   alt="Agile Insurance Logo"
                   width={80}
                   height={80}
@@ -145,7 +145,7 @@ export default function Navigation() {
           <div className="flex items-center flex-1 min-w-0 pr-44">
             <Link href="/" className="flex items-center">
               <Image
-                src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
+                src="/Images/Logos/Logo-removebg-preview.png"
                 alt="Agile Insurance Logo"
                 width={60}
                 height={60}

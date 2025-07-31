@@ -14,7 +14,7 @@ export const metadata = {
     url: "https://agile-insurance-website.vercel.app/about",
     images: [
       {
-        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        url: "/Images/Logos/Logo-removebg-preview.png",
         width: 1200,
         height: 630,
         alt: "About Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana"

@@ -15,7 +15,7 @@ export const metadata = {
     url: "https://agile-insurance-website.vercel.app/clients",
     images: [
       {
-        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        url: "/Images/Logos/Logo-removebg-preview.png",
         width: 1200,
         height: 630,
         alt: "Partners & Clients - Agile Insurance Brokers Ltd"
@@ -28,22 +28,22 @@ export default function ClientsPage() {
   const partners = [
     { 
       name: "Ghana Police Service", 
-      logo: "/Images/optimized/Logos/ghana-police-logo-removebg-preview.webp",
+      logo: "/Images/Logos/ghana-police-logo-removebg-preview.png",
       alt: "Ghana Police Service"
     },
     { 
       name: "Ghana National Fire Service", 
-      logo: "/Images/optimized/Logos/fire_service-removebg-preview.webp",
+      logo: "/Images/Logos/fire_service-removebg-preview.png",
       alt: "Ghana National Fire Service"
     },
     { 
       name: "State Transport Company", 
-      logo: "/Images/optimized/Logos/stc-removebg-preview.webp",
+      logo: "/Images/Logos/stc-removebg-preview.png",
       alt: "State Transport Company"
     },
     { 
       name: "Driver and Vehicle Licensing Authority (DVLA)", 
-      logo: "/Images/optimized/Logos/DVLA-removebg-preview.webp",
+      logo: "/Images/Logos/DVLA-removebg-preview.png",
       alt: "Driver and Vehicle Licensing Authority"
     },
   ];

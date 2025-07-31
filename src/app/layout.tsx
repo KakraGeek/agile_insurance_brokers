@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Agile Insurance Brokers Ltd",
     images: [
       {
-        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        url: "/Images/Logos/Logo-removebg-preview.png",
         width: 1200,
         height: 630,
         alt: "Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana"
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana",
     description: "Expert insurance brokerage services in Ghana. Motor, health, life, commercial, and business insurance solutions.",
-    images: ["/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"]
+    images: ["/Images/Logos/Logo-removebg-preview.png"]
   },
   verification: {
     google: "your-google-verification-code", // Add your Google Search Console verification code

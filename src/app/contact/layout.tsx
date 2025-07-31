@@ -9,7 +9,7 @@ export const metadata = {
     url: "https://agile-insurance-website.vercel.app/contact",
     images: [
       {
-        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        url: "/Images/Logos/Logo-removebg-preview.png",
         width: 1200,
         height: 630,
         alt: "Contact Agile Insurance Brokers Ltd - Get Insurance Quotes & Expert Advice"
