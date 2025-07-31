@@ -27,7 +27,8 @@ export default function Navigation() {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50" data-mobile-nav="v2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center min-h-16 md:min-h-20 py-2">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex justify-between items-center min-h-20 py-2">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
@@ -37,19 +38,19 @@ export default function Navigation() {
                   alt="Agile Insurance Logo"
                   width={80}
                   height={80}
-                  className="w-16 h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                  className="w-16 h-16 lg:w-20 lg:h-20 object-contain"
                   priority
                 />
               </div>
-              <div className="ml-1 md:ml-3">
-                <h1 className="text-[3px] md:text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
-                <p className="text-[3px] md:text-xs text-secondary leading-none">Brokers Ltd</p>
+              <div className="ml-3">
+                <h1 className="text-base lg:text-lg font-bold text-primary whitespace-nowrap leading-none">Agile Insurance</h1>
+                <p className="text-xs text-secondary leading-none">Brokers Ltd</p>
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="flex space-x-8">
             <Link
               href="/"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -124,7 +125,7 @@ export default function Navigation() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex">
+          <div className="flex">
             {pathname !== "/contact" && (
               <Link href="/contact">
                 <Button className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg">
@@ -133,18 +134,37 @@ export default function Navigation() {
               </Link>
             )}
           </div>
+        </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex-shrink-0 z-50 ml-4" style={{ minWidth: '48px' }}>
-            <Button
-              variant="ghost"
-              size="sm"
+        {/* Mobile Layout - Completely Separate */}
+        <div className="md:hidden flex items-center min-h-16 py-2 w-full relative">
+          {/* Mobile Logo and Text */}
+          <div className="flex items-center flex-1 min-w-0 pr-44">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/Images/optimized/Logos/Agile_Logo-removebg-preview.webp"
+                alt="Agile Insurance Logo"
+                width={60}
+                height={60}
+                className="w-8 h-8 object-contain"
+                priority
+              />
+              <div className="ml-1 min-w-0">
+                {/* Full company name with proper spacing */}
+                <h1 className="text-[8px] font-bold text-primary whitespace-nowrap leading-none sm:text-[9px] md:text-[10px]">Agile Insurance</h1>
+                <p className="text-[8px] text-secondary leading-none sm:text-[9px] md:text-[10px]">Brokers Ltd</p>
+              </div>
+            </Link>
+          </div>
+
+          {/* Mobile menu button - Positioned absolutely to use available space */}
+          <div className="absolute -right-4 top-1/2 transform -translate-y-1/2" style={{ zIndex: 10 }}>
+            <div
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 !block"
-              style={{ display: 'block !important' }}
+              className="cursor-pointer p-1"
             >
-              <Menu className="h-5 w-5" />
-            </Button>
+              <Menu className="h-4 w-4" />
+            </div>
           </div>
         </div>
 

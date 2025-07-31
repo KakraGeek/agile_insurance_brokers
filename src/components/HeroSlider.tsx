@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+
 
 import Image from "next/image";
 
@@ -110,22 +110,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
         ))}
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
-      </button>
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white p-2 md:p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-black/30 hover:border-black/50 shadow-lg hover:shadow-xl z-30"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
-      </button>
 
       {/* Dots Indicator */}
       <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-30">
