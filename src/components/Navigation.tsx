@@ -80,7 +80,7 @@ export default function Navigation() {
               <DropdownMenuContent align="start" className="w-48">
                 <DropdownMenuItem asChild>
                   <Link href="/about" className="cursor-pointer">
-                    About Us
+                    Who We Are
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>

@@ -4,7 +4,7 @@ import { Shield, Users, Award, Target, Zap, Building } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Agile - About",
+  title: "Agile - About Us",
   description: "Learn about Agile Insurance Brokers Ltd. A dynamic Ghanaian-owned insurance brokerage firm committed to protecting businesses, people, and assets across Ghana.",
 };
 
