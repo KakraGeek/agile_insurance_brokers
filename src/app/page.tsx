@@ -111,6 +111,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            {/* Updated with optimized images */}
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Welcome to{" "}
               <span className="text-primary">Agile Insurance</span>{" "}
