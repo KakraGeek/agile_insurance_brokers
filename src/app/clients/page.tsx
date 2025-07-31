@@ -5,8 +5,23 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Agile - Partners & Clients",
-  description: "Meet our partners and clients at Agile Insurance Brokers Ltd. Discover the trusted institutions and diverse client sectors we serve across Ghana.",
+  title: "Partners & Clients - Agile Insurance Brokers Ltd | Trusted Insurance Partners in Ghana",
+  description: "Discover Agile Insurance Brokers Ltd's trusted partners and diverse client sectors across Ghana. We serve construction, banking, healthcare, education, oil & gas, and more with comprehensive insurance solutions.",
+  keywords: "insurance partners Ghana, insurance clients Ghana, trusted insurance brokers, construction insurance Ghana, banking insurance Ghana, healthcare insurance Ghana, education insurance Ghana, oil and gas insurance Ghana, NGO insurance Ghana, car rental insurance Ghana, pharmaceutical insurance Ghana",
+  openGraph: {
+    title: "Partners & Clients - Agile Insurance Brokers Ltd | Trusted Insurance Partners in Ghana",
+    description: "Discover Agile Insurance Brokers Ltd's trusted partners and diverse client sectors across Ghana. We serve construction, banking, healthcare, education, oil & gas, and more with comprehensive insurance solutions.",
+    type: "website",
+    url: "https://agile-insurance-website.vercel.app/clients",
+    images: [
+      {
+        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        width: 1200,
+        height: 630,
+        alt: "Partners & Clients - Agile Insurance Brokers Ltd"
+      }
+    ]
+  }
 };
 
 export default function ClientsPage() {

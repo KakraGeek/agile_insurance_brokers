@@ -4,8 +4,23 @@ import { Shield, Users, Award, Target, Zap, Building } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Agile - About Us",
-  description: "Learn about Agile Insurance Brokers Ltd. A dynamic Ghanaian-owned insurance brokerage firm committed to protecting businesses, people, and assets across Ghana.",
+  title: "About Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana | Who We Are",
+  description: "Learn about Agile Insurance Brokers Ltd - Ghana's trusted insurance brokerage firm. Discover our mission, vision, and commitment to providing expert insurance solutions for businesses and individuals across Ghana.",
+  keywords: "about Agile Insurance Brokers, insurance brokers Ghana, who we are, insurance company Ghana, trusted insurance brokers, professional insurance services Ghana, insurance brokerage firm Ghana",
+  openGraph: {
+    title: "About Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana",
+    description: "Learn about Agile Insurance Brokers Ltd - Ghana's trusted insurance brokerage firm. Discover our mission, vision, and commitment to providing expert insurance solutions.",
+    type: "website",
+    url: "https://agile-insurance-website.vercel.app/about",
+    images: [
+      {
+        url: "/Images/optimized/Logos/Agile_Logo-removebg-preview.webp",
+        width: 1200,
+        height: 630,
+        alt: "About Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana"
+      }
+    ]
+  }
 };
 
 export default function AboutPage() {

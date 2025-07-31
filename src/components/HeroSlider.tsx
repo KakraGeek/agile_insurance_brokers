@@ -78,7 +78,7 @@ export default function HeroSlider({ slides, autoPlay = true, interval = 5000 }:
             <div className="absolute inset-0 flex items-center justify-center z-0">
               <Image 
                 src={slide.image}
-                alt={`Slide ${slide.id}`}
+                alt={`Agile Insurance Brokers Ltd - ${slide.tagline}`}
                 width={1200}
                 height={600}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
