@@ -1,0 +1,66 @@
+## IMPLEMENTATION STEPS – AGILE INSURANCE WEBSITE
+
+---
+
+### STAGE 1 – PROJECT SETUP
+- [ ] Initialize Next.js + Tailwind CSS project
+- [ ] Setup branding colors and global styles
+- [ ] Add favicon and logo to assets
+
+---
+
+### STAGE 2 – STATIC ROUTING & PAGE CREATION
+- [ ] Create `/` – Homepage from `homepage.md`
+- [ ] Create `/about` – About Us from `about_us.md`
+- [ ] Create `/about/services` – Our Services
+- [ ] Create `/about/products` – Our Products
+- [ ] Create `/about/team` – Our Team
+- [ ] Create `/clients` – Our Partners & Clients
+- [ ] Create `/contact` – Contact Us
+
+---
+
+### STAGE 3 – NAVIGATION & DROPDOWNS
+- [ ] Implement navigation menu with dropdown for About Us
+- [ ] Highlight active route
+- [ ] Add internal links on About Us page to subpages
+
+---
+
+### STAGE 4 – COMPONENT LAYOUTS
+- [ ] Create reusable Layout component (Header, Footer, Wrapper)
+- [ ] Use Layout across all pages
+
+---
+
+### STAGE 5 – SECURITY & ERROR HANDLING
+- [ ] Implement error boundaries
+- [ ] Sanitize all user-facing inputs
+- [ ] Apply OWASP Top 10 best practices (e.g., link validation, no inline scripts)
+
+---
+
+### STAGE 6 – CONTENT RENDERING
+- [ ] Parse and render all `.md` content files using static generation
+- [ ] Test rendering for nested routes (`/about/*`)
+
+---
+
+### STAGE 7 – RESPONSIVENESS & SEO
+- [ ] Ensure layout adapts to mobile/tablet/desktop
+- [ ] Add SEO meta tags (title, description, og:image)
+- [ ] Set up robots.txt and sitemap.xml
+
+---
+
+### STAGE 8 – TESTING & VERIFICATION
+- [ ] Verify all links, routes, and dropdowns work
+- [ ] Run Lighthouse audit
+- [ ] Conduct stakeholder review
+
+---
+
+### STAGE 9 – DEPLOYMENT
+- [ ] Configure deployment (Vercel)
+- [ ] Set environment configs (if needed)
+- [ ] Publish and confirm build

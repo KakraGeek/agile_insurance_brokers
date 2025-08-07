@@ -1,0 +1,59 @@
+branding:
+  accentColor: '#808080'
+  backgroundColor: '#ffffff'
+  primaryColor: '#001f5f'
+  secondaryColor: '#7b1b2b'
+mcp: mcp/agile-insurance-brokers-website.mcp.yaml
+project: agile-insurance-brokers-website
+tasks:
+- id: initialize-nextjs
+  name: Initialize Next.js project
+  purpose: Scaffold a TypeScript-based Next.js project with Tailwind CSS and ShadCN
+    UI integration.
+  server: frontend-starter-mcp-server
+- id: create-pages
+  name: Create pages and routes
+  purpose: Set up static pages and routing structure (Home, About, Services, Claims,
+    Clients, Quote, Contact).
+  server: nextjs-pages-mcp-server
+- id: content-markdown
+  name: Integrate Markdown content system
+  purpose: Enable loading of page sections (team bios, product details) from MDX/Markdown
+    files.
+  server: content-mdx-mcp-server
+- id: build-homepage
+  name: Implement homepage layout
+  purpose: Build the hero, service highlights, and quote CTA sections based on design
+    layout.
+  server: layout-builder-mcp-server
+- id: build-services-page
+  name: Build insurance products grid
+  purpose: Implement responsive product card grid for 13 services using ShadCN Card
+    components.
+  server: shadcn-ui-mcp-server
+- id: quote-request-form
+  name: Create Quote Request Form
+  purpose: Build form for collecting client quote requests (name, phone, product,
+    message).
+  server: shadcn-ui-mcp-server
+- id: claims-support-page
+  name: Claims Page with guidance and downloads
+  purpose: Display process steps, downloadable forms, and FAQs.
+  server: content-mdx-mcp-server
+- id: contact-page-map
+  name: Create Contact page with embedded map
+  purpose: Build responsive contact page with Google Maps embed and WhatsApp call-to-action.
+  server: contact-map-ui-mcp-server
+- id: footer-seo
+  name: Add Footer and Metadata
+  purpose: Implement site-wide footer and SEO metadata per page.
+  server: layout-builder-mcp-server
+- id: security-best-practices
+  name: Secure forms and apply OWASP Top 10
+  purpose: Add form validation, CAPTCHA/honeypot, avoid exposing raw emails/phone,
+    enable HTTPS, and secure headers.
+  server: web-security-mcp-server
+- id: deploy-to-vercel
+  name: Deploy site to Vercel or Hostinger
+  purpose: Push to GitHub and configure CI/CD deployment.
+  server: deployment-mcp-server
