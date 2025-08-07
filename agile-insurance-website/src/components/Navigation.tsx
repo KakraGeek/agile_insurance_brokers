@@ -28,19 +28,17 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Layout */}
         <div className="hidden md:flex justify-between items-center min-h-20 py-2">
-          {/* Logo */}
+          {/* Logo and Text */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/Images/Logos/Logo-removebg-preview.png"
-                  alt="Agile Insurance Logo"
-                  width={80}
-                  height={80}
-                  className="w-16 h-16 lg:w-20 lg:h-20 object-contain"
-                  priority
-                />
-              </div>
+              <Image
+                src="/Images/Logos/Logo-removebg-preview.png"
+                alt="Agile Insurance Logo"
+                width={80}
+                height={80}
+                className="w-16 h-16 lg:w-20 lg:h-20 object-contain"
+                priority
+              />
               <div className="ml-3">
                 <h1 className="text-base lg:text-lg font-bold whitespace-nowrap leading-none">
                   <span className="text-primary">Agile</span>{" "}
@@ -63,8 +61,6 @@ export default function Navigation() {
             >
               Home
             </Link>
-
-            {/* About Us Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
@@ -102,7 +98,6 @@ export default function Navigation() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
             <Link
               href="/clients"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -113,7 +108,6 @@ export default function Navigation() {
             >
               Partners & Clients
             </Link>
-
             <Link
               href="/contact"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -139,33 +133,33 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden flex items-center justify-between min-h-16 py-2">
-          {/* Mobile Logo and Text */}
-          <div className="flex items-center flex-1 min-w-0">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/Images/Logos/Logo-removebg-preview.png"
-                alt="Agile Insurance Logo"
-                width={60}
-                height={60}
-                className="w-8 h-8 object-contain"
-                priority
-              />
-              <div className="ml-2 min-w-0">
-                <h1 className="text-[10px] font-bold whitespace-nowrap leading-none sm:text-xs md:text-sm">
-                  <span className="text-primary">Agile</span>{" "}
-                  <span className="text-secondary">Insurance</span>
-                </h1>
-                <p className="text-[8px] text-secondary leading-none sm:text-[10px] md:text-xs">Brokers Ltd</p>
+        <div className="md:hidden flex items-center min-h-16 py-2 px-4 w-full justify-between">
+          {/* Logo and Text */}
+          <Link href="/" className="flex items-center min-w-0 max-w-[70vw]">
+            <Image
+              src="/Images/Logos/Logo-removebg-preview.png"
+              alt="Agile Insurance Logo"
+              width={28}
+              height={28}
+              className="w-7 h-7 object-contain flex-shrink-0"
+              priority
+            />
+            <div className="ml-2 min-w-0">
+              <div className="text-[11px] font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+                <span className="text-primary">Agile</span>{" "}
+                <span className="text-secondary">Insurance</span>
               </div>
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex-shrink-0">
+              <div className="text-[8px] text-secondary leading-none">
+                Brokers Ltd
+              </div>
+            </div>
+          </Link>
+          {/* Hamburger Menu */}
+          <div className="flex-shrink-0 ml-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-50"
+              aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -187,9 +181,10 @@ export default function Navigation() {
               >
                 Home
               </Link>
-              
               <div className="px-3 py-2">
-                <div className="text-base font-medium text-gray-700 mb-2">About Us</div>
+                <div className="text-base font-medium text-gray-700 mb-2">
+                  About Us
+                </div>
                 <div className="pl-4 space-y-1">
                   <Link
                     href="/about"
@@ -237,7 +232,6 @@ export default function Navigation() {
                   </Link>
                 </div>
               </div>
-
               <Link
                 href="/clients"
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
@@ -249,7 +243,6 @@ export default function Navigation() {
               >
                 Partners & Clients
               </Link>
-
               <Link
                 href="/contact"
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
@@ -261,7 +254,6 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-
               <div className="px-3 pt-2">
                 {pathname !== "/contact" && (
                   <Link href="/contact">
