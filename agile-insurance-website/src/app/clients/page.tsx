@@ -5,14 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Partners & Clients - Agile Insurance Brokers Ltd | Trusted Insurance Partners in Ghana",
-  description: "Discover Agile Insurance Brokers Ltd's trusted partners and diverse client sectors across Ghana. We serve construction, banking, healthcare, education, oil & gas, and more with comprehensive insurance solutions.",
-  keywords: "insurance partners Ghana, insurance clients Ghana, trusted insurance brokers, construction insurance Ghana, banking insurance Ghana, healthcare insurance Ghana, education insurance Ghana, oil and gas insurance Ghana, NGO insurance Ghana, car rental insurance Ghana, pharmaceutical insurance Ghana",
+  title: "Partners & Clients - Agile Insurance Brokers Ltd | Trusted Insurance Partnerships in Ghana",
+  description: "Discover Agile Insurance Brokers Ltd's trusted partnerships and diverse client base across Ghana. We serve corporations, businesses, and individuals with comprehensive insurance solutions.",
+  keywords: "insurance partners Ghana, insurance clients Ghana, business partnerships, corporate clients, insurance brokerage partnerships, trusted insurance relationships Ghana",
   openGraph: {
-    title: "Partners & Clients - Agile Insurance Brokers Ltd | Trusted Insurance Partners in Ghana",
-    description: "Discover Agile Insurance Brokers Ltd's trusted partners and diverse client sectors across Ghana. We serve construction, banking, healthcare, education, oil & gas, and more with comprehensive insurance solutions.",
+    title: "Partners & Clients - Agile Insurance Brokers Ltd",
+    description: "Discover our trusted partnerships and diverse client base across Ghana. We serve corporations, businesses, and individuals with comprehensive insurance solutions.",
     type: "website",
-    url: "https://agile-insurance-website.vercel.app/clients",
+    url: "https://agilebrokersgh.com/clients",
     images: [
       {
         url: "/Images/Logos/Logo-removebg-preview.png",

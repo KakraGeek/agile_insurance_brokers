@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   publisher: "Agile Insurance Brokers Ltd",
   robots: "index, follow",
   alternates: {
-    canonical: "https://agile-insurance-website.vercel.app"
+    canonical: "https://agilebrokersgh.com"
   },
   openGraph: {
     title: "Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana",
     description: "Expert insurance brokerage services in Ghana. Motor, health, life, commercial, and business insurance solutions. Professional advice and competitive quotes at no cost.",
     type: "website",
     locale: "en_US",
-    url: "https://agile-insurance-website.vercel.app",
+    url: "https://agilebrokersgh.com",
     siteName: "Agile Insurance Brokers Ltd",
     images: [
       {

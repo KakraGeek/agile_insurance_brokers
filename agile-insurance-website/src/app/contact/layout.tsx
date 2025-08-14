@@ -6,7 +6,7 @@ export const metadata = {
     title: "Contact Agile Insurance Brokers Ltd - Get Insurance Quotes & Expert Advice",
     description: "Contact Agile Insurance Brokers Ltd for expert insurance advice, competitive quotes, and professional support. Get in touch for motor, health, life, commercial, and business insurance solutions.",
     type: "website",
-    url: "https://agile-insurance-website.vercel.app/contact",
+    url: "https://agilebrokersgh.com/contact",
     images: [
       {
         url: "/Images/Logos/Logo-removebg-preview.png",

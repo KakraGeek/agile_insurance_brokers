@@ -13,7 +13,7 @@ export const metadata = {
     title: "Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana",
     description: "Expert insurance brokerage services in Ghana. Motor, health, life, commercial, and business insurance solutions. Professional advice and competitive quotes at no cost.",
     type: "website",
-    url: "https://agile-insurance-website.vercel.app",
+    url: "https://agilebrokersgh.com",
     images: [
       {
         url: "/Images/Logos/Logo-removebg-preview.png",
@@ -48,8 +48,8 @@ export default function HomePage() {
             "@type": "InsuranceAgency",
             "name": "Agile Insurance Brokers Ltd",
             "description": "Ghana's trusted insurance brokerage firm providing comprehensive insurance solutions including motor, health, life, and commercial insurance.",
-            "url": "https://agile-insurance-website.vercel.app",
-            "logo": "https://agile-insurance-website.vercel.app/Images/Logos/Logo-removebg-preview.png",
+            "url": "https://agilebrokersgh.com",
+            "logo": "https://agilebrokersgh.com/Images/Logos/Logo-removebg-preview.png",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "Ghana",

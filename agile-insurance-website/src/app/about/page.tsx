@@ -11,7 +11,7 @@ export const metadata = {
     title: "About Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana",
     description: "Learn about Agile Insurance Brokers Ltd - Ghana's trusted insurance brokerage firm. Discover our mission, vision, and commitment to providing expert insurance solutions.",
     type: "website",
-    url: "https://agile-insurance-website.vercel.app/about",
+    url: "https://agilebrokersgh.com/about",
     images: [
       {
         url: "/Images/Logos/Logo-removebg-preview.png",
