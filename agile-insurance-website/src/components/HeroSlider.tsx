@@ -26,7 +26,7 @@ export default function HeroSlider({ slides: propSlides, autoPlay = true, interv
   const defaultSlides: HeroSlide[] = [
     {
       id: 1,
-      image: "/images/Hero Slider Images/Optimised/new_Hero1_result.webp",
+      image: "/images/hero-slider-images/new_Hero1_result.webp",
       tagline: "Protecting what matters most - your family, your future",
       title: "Your Trusted Insurance Partner",
       subtitle: "Comprehensive insurance solutions for individuals and businesses in Ghana",
@@ -35,7 +35,7 @@ export default function HeroSlider({ slides: propSlides, autoPlay = true, interv
     },
     {
       id: 2,
-      image: "/images/Hero Slider Images/Optimised/new_Hero2_result.webp",
+      image: "/images/hero-slider-images/new_Hero2_result.webp",
       tagline: "Expert advice that drives confident decisions",
       title: "Expert Advice & Competitive Rates",
       subtitle: "We provide peace of mind through sound insurance and exceptional service",
@@ -44,7 +44,7 @@ export default function HeroSlider({ slides: propSlides, autoPlay = true, interv
     },
     {
       id: 3,
-      image: "/images/Hero Slider Images/Optimised/new_Hero3_result.webp",
+      image: "/images/hero-slider-images/new_Hero3_result.webp",
       tagline: "Reliable and speedy support - at your point of need",
       title: "Protect What Matters Most",
       subtitle: "Motor, health, life, commercial, and business insurance tailored to your needs",
@@ -53,7 +53,7 @@ export default function HeroSlider({ slides: propSlides, autoPlay = true, interv
     },
     {
       id: 4,
-      image: "/images/Hero Slider Images/Optimised/new_Hero4_result.webp",
+      image: "/images/hero-slider-images/new_Hero4_result.webp",
       tagline: "Powering business growth with trusted coverage",
       title: "Dedicated to Your Protection",
       subtitle: "Trust our experienced team to safeguard your assets and provide peace of mind",
