@@ -122,20 +122,20 @@ export default function AnimatedAboutPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              About <span className="text-primary">Agile Insurance</span>{" "}
-              <span className="text-secondary">Brokers</span>
-            </h1>
-            <motion.p 
-              className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              Discover our story, mission, and commitment to providing exceptional insurance solutions 
-              that protect what matters most to you and your business.
-            </motion.p>
+                         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+               About <span className="text-primary">Agile Insurance</span>{" "}
+               <span className="text-secondary">Brokers</span>
+             </h1>
+             <motion.p 
+               className="text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg"
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.4, duration: 0.6 }}
+             >
+               Discover our story, mission, and commitment to providing exceptional insurance solutions 
+               that protect what matters most to you and your business.
+             </motion.p>
           </motion.div>
         </div>
       </motion.section>
@@ -171,37 +171,37 @@ export default function AnimatedAboutPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
-              <motion.p 
-                className="text-lg text-gray-600 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                Agile Insurance Brokers Ltd is a dynamic Ghanaian-owned insurance brokerage firm 
-                committed to protecting businesses, people, and assets across Ghana.
-              </motion.p>
-              <motion.p 
-                className="text-gray-600 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-              >
-                We were incorporated in 2019 and are authorized to transact business with all 
-                registered insurance companies in the country. Our focus is to provide tailored, 
-                affordable insurance solutions backed by professional advice and support.
-              </motion.p>
-              <motion.p 
-                className="text-gray-600 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-              >
-                We provide peace of mind to our clients through sound insurance and exceptional service.
-              </motion.p>
+                             <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
+               <motion.p 
+                 className="text-lg text-gray-600 mb-6"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: 0.4, duration: 0.6 }}
+               >
+                 Agile Insurance Brokers Ltd is a dynamic Ghanaian-owned insurance brokerage firm 
+                 committed to protecting businesses, people, and assets across Ghana.
+               </motion.p>
+               <motion.p 
+                 className="text-gray-600 mb-6"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: 0.6, duration: 0.6 }}
+               >
+                 We were incorporated in 2019 and are authorized to transact business with all 
+                 registered insurance companies in the country. Our focus is to provide tailored, 
+                 affordable insurance solutions backed by professional advice and support.
+               </motion.p>
+               <motion.p 
+                 className="text-gray-600 mb-6"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ delay: 0.8, duration: 0.6 }}
+               >
+                 We provide peace of mind to our clients through sound insurance and exceptional service.
+               </motion.p>
             </motion.div>
             <motion.div 
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -289,65 +289,65 @@ export default function AnimatedAboutPage() {
               >
                 <Shield className="h-8 w-8 text-primary" />
               </motion.div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Authorized Broker</h3>
-              <p className="text-gray-600">
-                Authorized to transact business with all registered insurance companies in Ghana.
-              </p>
-            </motion.div>
-            <motion.div 
-              className="text-center"
-              variants={cardVariants}
-              custom={1}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.03,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <motion.div 
-                className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"
-                variants={iconVariants}
-                custom={1}
-                whileHover={{ 
-                  scale: 1.1, 
-                  rotate: 5,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Award className="h-8 w-8 text-secondary" />
-              </motion.div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Professional Service</h3>
-              <p className="text-gray-600">
-                Tailored, affordable insurance solutions backed by professional advice and support.
-              </p>
-            </motion.div>
-            <motion.div 
-              className="text-center"
-              variants={cardVariants}
-              custom={2}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.03,
-                transition: { duration: 0.3 }
-              }}
-            >
-              <motion.div 
-                className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
-                variants={iconVariants}
-                custom={2}
-                whileHover={{ 
-                  scale: 1.1, 
-                  rotate: 5,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Users className="h-8 w-8 text-primary" />
-              </motion.div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Client Focused</h3>
-              <p className="text-gray-600">
-                Committed to protecting businesses, people, and assets across Ghana.
-              </p>
-            </motion.div>
+                             <h3 className="text-xl font-semibold text-gray-900 mb-2">Authorized Broker</h3>
+               <p className="text-gray-600">
+                 Authorized to transact business with all registered insurance companies in Ghana.
+               </p>
+             </motion.div>
+             <motion.div 
+               className="text-center"
+               variants={cardVariants}
+               custom={1}
+               whileHover={{ 
+                 y: -8, 
+                 scale: 1.03,
+                 transition: { duration: 0.3 }
+               }}
+             >
+               <motion.div 
+                 className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                 variants={iconVariants}
+                 custom={1}
+                 whileHover={{ 
+                   scale: 1.1, 
+                   rotate: 5,
+                   transition: { duration: 0.3 }
+                 }}
+               >
+                 <Award className="h-8 w-8 text-secondary" />
+               </motion.div>
+               <h3 className="text-xl font-semibold text-gray-900 mb-2">Professional Service</h3>
+               <p className="text-gray-600">
+                 Tailored, affordable insurance solutions backed by professional advice and support.
+               </p>
+             </motion.div>
+                          <motion.div 
+               className="text-center"
+               variants={cardVariants}
+               custom={2}
+               whileHover={{ 
+                 y: -8, 
+                 scale: 1.03,
+                 transition: { duration: 0.3 }
+               }}
+             >
+               <motion.div 
+                 className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                 variants={iconVariants}
+                 custom={2}
+                 whileHover={{ 
+                   scale: 1.1, 
+                   rotate: 5,
+                   transition: { duration: 0.3 }
+                 }}
+               >
+                 <Users className="h-8 w-8 text-primary" />
+               </motion.div>
+               <h3 className="text-xl font-semibold text-gray-900 mb-2">Client Focused</h3>
+               <p className="text-gray-600">
+                 Committed to protecting businesses, people, and assets across Ghana.
+               </p>
+             </motion.div>
           </motion.div>
 
           {/* Explore More Section with Animation */}
