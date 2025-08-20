@@ -1,0 +1,46 @@
+🚀 AGILE INSURANCE BROKERS - DEPLOYMENT CHECKLIST
+
+📋 BEFORE UPLOADING:
+□ Backup existing website (rename public_html to public_html_backup)
+□ Create new public_html folder
+□ Ensure you have access to cPanel File Manager
+
+📁 UPLOAD THESE FILES IN ORDER:
+1. index.html
+2. 404.html  
+3. favicon.ico
+4. robots.txt
+5. sitemap.xml
+6. .htaccess
+7. _next/ folder (complete)
+8. Images/ folder (complete)
+9. about/ folder (complete)
+10. contact/ folder (complete)
+11. clients/ folder (complete)
+
+🔧 SET PERMISSIONS:
+□ HTML files: 644
+□ CSS/JS files: 644
+□ Image files: 644
+□ Folders: 755
+
+✅ TEST AFTER UPLOAD:
+□ Homepage loads
+□ Hero slider images display
+□ All navigation works
+□ Parallax effects work
+□ Mobile responsive
+□ All pages accessible
+□ Performance is good
+
+⚠️ IMPORTANT:
+- Don't rename any folders
+- Keep exact file structure
+- Upload all files completely
+- Test thoroughly before removing backup
+
+📞 IF ISSUES:
+- Check browser console for errors
+- Verify file permissions
+- Clear browser cache
+- Check file paths are correct
