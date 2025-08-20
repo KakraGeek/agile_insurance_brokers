@@ -4,6 +4,7 @@ import { Shield, Users, Award, Heart, Handshake, Target, Zap, Star } from "lucid
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
 import Script from "next/script";
+import Image from "next/image";
 
 export const metadata = {
   title: "Agile Insurance Brokers Ltd - Leading Insurance Brokers in Ghana | Expert Insurance Solutions",
@@ -26,17 +27,6 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const coreValues = [
-    { icon: Star, title: "Excellence", description: "We strive for excellence in everything we do" },
-    { icon: Shield, title: "Integrity", description: "Honest and transparent in all our dealings" },
-    { icon: Users, title: "Teamwork", description: "Collaborative approach to serving our clients" },
-    { icon: Heart, title: "Service", description: "Dedicated to exceptional customer service" },
-    { icon: Handshake, title: "Empathy", description: "Understanding and caring for our clients' needs" },
-    { icon: Award, title: "Ethics", description: "Maintaining the highest ethical standards" },
-  ];
-
-
-
   return (
     <div className="min-h-screen">
       <Script
@@ -107,59 +97,18 @@ export default function HomePage() {
           })
         }}
       />
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* Updated with optimized images */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Welcome to{" "}
-              <span className="text-primary">Agile Insurance</span>{" "}
-              <span className="text-secondary">Brokers Ltd</span>
-            </h1>
-            <h2 className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Your trusted partner for comprehensive insurance solutions. We provide peace of mind 
-              through sound insurance and exceptional service at no cost to you.
-            </h2>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Hero Slider Section */}
-      <HeroSlider 
-        slides={[
-          {
-            id: 1,
-            image: "/Images/Hero Slider Images/Optimised/new_Hero1_result.webp",
-            tagline: "Protecting What Matters Most – Your Family, Your Future"
-          },
-          {
-            id: 2,
-            image: "/Images/Hero Slider Images/Optimised/new_Hero2_result.webp",
-            tagline: "Expert Advice That Drives Confident Decisions"
-          },
-          {
-            id: 3,
-            image: "/Images/Hero Slider Images/Optimised/new_Hero3_result.webp",
-            tagline: "Reliable and Speedy Support at your Point of Need"
-          },
-          {
-            id: 4,
-            image: "/Images/Hero Slider Images/Optimised/new_Hero4_result.webp",
-            tagline: "Powering Business Growth with Trusted Coverage"
-          }
-        ]}
-        autoPlay={true}
-        interval={5000}
-      />
+      
+      {/* Hero Slider */}
+      <HeroSlider />
 
       {/* About Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">About Agile Insurance Brokers</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                About <span className="text-primary">AGILE</span> <span className="text-secondary">INSURANCE</span> <span className="text-primary">BROKERS</span>
+              </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Agile Insurance Brokers Limited was incorporated in 2019 under the Companies Act, 2019 (Act 992).
                 The Company aims to be a leader in providing high quality and competitively priced insurance services nationwide.
@@ -176,7 +125,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="border-primary/20">
+              <Card className="border-primary/20 hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-primary flex items-center">
                     <Target className="mr-2 h-5 w-5" />
@@ -187,7 +136,7 @@ export default function HomePage() {
                   <p className="text-gray-600">To be everywhere risk exists.</p>
                 </CardContent>
               </Card>
-              <Card className="border-secondary/20">
+              <Card className="border-secondary/20 hover:shadow-xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-secondary flex items-center">
                     <Zap className="mr-2 h-5 w-5" />
@@ -206,22 +155,41 @@ export default function HomePage() {
       {/* Core Values Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              These values guide everything we do and ensure we provide the best service to our clients.
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Core Values</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We are guided by these fundamental principles in everything we do.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreValues.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <value.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-gray-900">{value.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Trust & Reliability",
+                description: "Building lasting relationships through consistent, dependable service."
+              },
+              {
+                icon: Users,
+                title: "Customer Focus",
+                description: "Putting our clients' needs first in every decision we make."
+              },
+              {
+                icon: Award,
+                title: "Excellence",
+                description: "Striving for the highest standards in all our services."
+              },
+              {
+                icon: Heart,
+                title: "Integrity",
+                description: "Operating with honesty, transparency, and ethical practices."
+              }
+            ].map((value) => (
+              <Card key={value.title} className="text-center p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                  <value.icon className="w-8 h-8 text-white" />
+                </div>
+                <CardTitle className="text-lg font-semibold text-gray-900 mb-3">{value.title}</CardTitle>
+                <CardContent className="p-0">
                   <p className="text-gray-600">{value.description}</p>
                 </CardContent>
               </Card>
@@ -230,33 +198,124 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Products CTA Section */}
+      {/* Logo & Tagline Section with Fixed Background */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Fixed Background Image - Stays in place while text scrolls */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-70"
+          style={{
+            backgroundImage: "url('/Images/Parallax/New/banner_parallax_01.webp')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 to-secondary/40" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div>
+            <Image 
+              src="/Images/Logos/Logo-removebg-preview.png"
+              alt="Agile Insurance Brokers Ltd Logo"
+              width={200}
+              height={200}
+              className="mx-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link href="/about/products">
-              <Button className="bg-primary hover:bg-primary/90 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                View Our Products
-              </Button>
-            </Link>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Services</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Comprehensive insurance solutions tailored to meet your unique needs.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Motor Insurance",
+                description: "Comprehensive coverage for your vehicles with competitive rates.",
+                link: "/about/services"
+              },
+              {
+                icon: Heart,
+                title: "Health Insurance",
+                description: "Protect your health and well-being with our health insurance plans.",
+                link: "/about/services"
+              },
+              {
+                icon: Users,
+                title: "Life Insurance",
+                description: "Secure your family's future with our life insurance policies.",
+                link: "/about/services"
+              },
+              {
+                icon: Handshake,
+                title: "Commercial Insurance",
+                description: "Protect your business with our comprehensive commercial insurance solutions.",
+                link: "/about/services"
+              },
+              {
+                icon: Star,
+                title: "Travel Insurance",
+                description: "Travel with peace of mind knowing you're protected worldwide.",
+                link: "/about/services"
+              },
+              {
+                icon: Award,
+                title: "Professional Indemnity",
+                description: "Protect your professional reputation and financial security.",
+                link: "/about/services"
+              }
+            ].map((service) => (
+              <Card key={service.title} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <CardTitle className="text-xl font-semibold text-gray-900">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <Link href={service.link}>
+                    <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                      Learn More
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-secondary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-secondary text-white relative overflow-hidden">
+        {/* Fixed Background Image - Stays in place while text scrolls */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-70"
+          style={{
+            backgroundImage: "url('/Images/Parallax/New/banner_parallax_03.webp')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary/80" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl font-bold !text-white drop-shadow-md mb-4">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 opacity-90 text-white">
-            Get a free quote today and discover how we can protect what matters most to you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-white !text-white bg-transparent hover:bg-white hover:!text-secondary">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
+          <p className="text-xl mb-8">Get a free quote today and discover how we can protect what matters most to you.</p>
+          <Link href="/contact">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white bg-transparent hover:bg-white hover:text-secondary transition-all duration-300 hover:scale-105"
+            >
+              Contact Us
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

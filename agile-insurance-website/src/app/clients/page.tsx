@@ -102,13 +102,23 @@ export default function ClientsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20 relative overflow-hidden">
+        {/* Fixed Background Image - Stays in place while text scrolls */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-60"
+          style={{
+            backgroundImage: "url('/Images/Parallax/New/banner_parallax_03.webp')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 to-secondary/40" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our <span className="text-primary">Partners</span> & <span className="text-secondary">Clients</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              Our <span className="text-white">Partners</span> & <span className="text-white">Clients</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md">
               Building strong relationships with trusted partners and serving diverse clients 
               across Ghana&apos;s economy with comprehensive insurance solutions.
             </p>
@@ -248,8 +258,18 @@ export default function ClientsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-secondary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 bg-secondary text-white relative overflow-hidden">
+        {/* Fixed Background Image - Stays in place while text scrolls */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-70"
+          style={{
+            backgroundImage: "url('/Images/Parallax/New/banner_parallax_02.webp')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 to-secondary/80" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl font-bold !text-white drop-shadow-md mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
             Get a free quote today and discover how we can protect what matters most to you.

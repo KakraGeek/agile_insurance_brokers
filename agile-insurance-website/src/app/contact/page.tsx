@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, MessageSquare, AlertCircle, CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // Validation types
 interface FormErrors {
@@ -49,6 +50,64 @@ const validateMessage = (message: string): string | undefined => {
 };
 
 export default function ContactPage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Animation variants
+  const sectionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30, 
+      scale: 0.95 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.5, 
+      rotate: -180 
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const,
+        type: "spring" as const,
+        stiffness: 200
+      }
+    }
+  };
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -216,402 +275,645 @@ ${formData.message}
 
   const hasErrors = Object.keys(errors).length > 0;
 
-
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Contact <span className="text-primary">Us</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Get in touch with our team of insurance professionals. We&apos;re here to help you 
-              find the right coverage for your needs.
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen" ref={containerRef}>
+      {/* Hero Section with Enhanced Animations */}
+      <motion.section 
+        className="bg-gradient-to-br from-primary/10 via-white to-secondary/10 py-20 relative overflow-hidden"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* Fixed Background Image - Stays in place while text scrolls */}
+        <div 
+          className="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat opacity-60"
+          style={{
+            backgroundImage: "url('/Images/Parallax/New/banner_parallax_02.webp')",
+            backgroundAttachment: "fixed"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 to-secondary/40" />
 
-      {/* Contact Information & Form */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              Get in <span className="text-white">Touch</span>
+            </h1>
+            <motion.p 
+              className="text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Ready to discuss your insurance needs? Contact us today for expert advice 
+              and personalized solutions that protect what matters most.
+            </motion.p>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Contact Information & Form with Enhanced Animations */}
+      <motion.section 
+        className="py-16 bg-white relative"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* Background Pattern with Parallax */}
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            y: useTransform(scrollYProgress, [0, 1], [0, -200])
+          }}
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+            style={{
+              backgroundImage: "url('/Images/health insurance.png')"
+            }}
+          />
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <motion.p 
+                className="text-lg text-gray-600 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
                 Ready to discuss your insurance needs? Contact us today for a free consultation 
                 and personalized quote. Our team is here to help you find the perfect coverage.
-              </p>
+              </motion.p>
 
               <div className="space-y-6">
                 {/* Office Address */}
-                <Card className="border-primary/20">
-                  <CardHeader>
-                    <CardTitle className="text-primary flex items-center">
-                      <MapPin className="mr-2 h-5 w-5" />
-                      Main Office
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-2">
-                      Romick Plaza, Kweku Boi Street, Adenta
-                    </p>
-                    <p className="text-gray-600">
-                      GPS: GD-009-1766
-                    </p>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Card className="border-primary/20 hover:shadow-xl transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-primary flex items-center">
+                        <motion.div
+                          variants={iconVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          whileHover={{ 
+                            scale: 1.1, 
+                            rotate: 5,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          <MapPin className="mr-2 h-5 w-5" />
+                        </motion.div>
+                        Main Office
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 mb-2">
+                        Romick Plaza, Kweku Boi Street, Adenta
+                      </p>
+                      <p className="text-gray-600">
+                        GPS: GD-009-1766
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
 
                 {/* Phone Numbers */}
-                <Card className="border-secondary/20">
-                  <CardHeader>
-                    <CardTitle className="text-secondary flex items-center">
-                      <Phone className="mr-2 h-5 w-5" />
-                      Phone Numbers
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      <a 
-                        href="tel:+233244104087" 
-                        className="block text-gray-600 hover:text-primary transition-colors"
-                      >
-                        +233 244 104 087
-                      </a>
-                      <a 
-                        href="tel:+233248290188" 
-                        className="block text-gray-600 hover:text-primary transition-colors"
-                      >
-                        +233 248 290 188
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1, duration: 0.6 }}
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Card className="border-secondary/20 hover:shadow-xl transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-secondary flex items-center">
+                        <motion.div
+                          variants={iconVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          whileHover={{ 
+                            scale: 1.1, 
+                            rotate: 5,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          <Phone className="mr-2 h-5 w-5" />
+                        </motion.div>
+                        Phone Numbers
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2">
+                        <a 
+                          href="tel:+233244104087" 
+                          className="block text-gray-600 hover:text-primary transition-colors"
+                        >
+                          +233 244 104 087
+                        </a>
+                        <a 
+                          href="tel:+233248290188" 
+                          className="block text-gray-600 hover:text-primary transition-colors"
+                        >
+                          +233 248 290 188
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
 
                 {/* Email */}
-                <Card className="border-primary/20">
-                  <CardHeader>
-                    <CardTitle className="text-primary flex items-center">
-                      <Mail className="mr-2 h-5 w-5" />
-                      Email
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <a 
-                      href="mailto:info@agilebrokersgh.com" 
-                      className="text-gray-600 hover:text-primary transition-colors"
-                    >
-                      info@agilebrokersgh.com
-                    </a>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Card className="border-primary/20 hover:shadow-xl transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-primary flex items-center">
+                        <motion.div
+                          variants={iconVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          whileHover={{ 
+                            scale: 1.1, 
+                            rotate: 5,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          <Mail className="mr-2 h-5 w-5" />
+                        </motion.div>
+                        Email
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <a 
+                        href="mailto:info@agilebrokersgh.com" 
+                        className="text-gray-600 hover:text-primary transition-colors"
+                      >
+                        info@agilebrokersgh.com
+                      </a>
+                    </CardContent>
+                  </Card>
+                </motion.div>
 
                 {/* Business Hours */}
-                <Card className="border-secondary/20">
+                <motion.div
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  whileHover={{ 
+                    y: -5, 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Card className="border-secondary/20 hover:shadow-xl transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-secondary flex items-center">
+                        <motion.div
+                          variants={iconVariants}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          whileHover={{ 
+                            scale: 1.1, 
+                            rotate: 5,
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          <Clock className="mr-2 h-5 w-5" />
+                        </motion.div>
+                        Business Hours
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2">
+                        <p className="text-gray-600">
+                          <strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>Saturday:</strong> Closed
+                        </p>
+                        <p className="text-gray-600">
+                          <strong>Sunday:</strong> Closed
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <motion.div
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ 
+                  y: -5, 
+                  scale: 1.01,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <Card className="border-primary/20 hover:shadow-2xl transition-all duration-500">
                   <CardHeader>
-                    <CardTitle className="text-secondary flex items-center">
-                      <Clock className="mr-2 h-5 w-5" />
-                      Business Hours
+                    <CardTitle className="text-primary flex items-center">
+                      <motion.div
+                        variants={iconVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        whileHover={{ 
+                          scale: 1.1, 
+                          rotate: 5,
+                          transition: { duration: 0.3 }
+                        }}
+                      >
+                        <MessageSquare className="mr-2 h-5 w-5" />
+                      </motion.div>
+                      Send Us a Message
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-2">
-                      <p className="text-gray-600">
-                        <strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Saturday:</strong> Closed
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Sunday:</strong> Closed
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+                    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="firstName" className="text-gray-700">
+                            First Name *
+                          </Label>
+                          <Input 
+                            id="firstName" 
+                            name="firstName"
+                            type="text" 
+                            value={formData.firstName}
+                            onChange={handleInputChange}
+                            onBlur={() => handleBlur('firstName')}
+                            placeholder="Enter your first name (e.g., John)"
+                            className={`mt-1 ${errors.firstName && touched.firstName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                            aria-invalid={errors.firstName ? 'true' : 'false'}
+                            aria-describedby={errors.firstName ? 'firstName-error' : ''}
+                          />
+                          {errors.firstName && touched.firstName && (
+                            <p id="firstName-error" className="mt-1 text-sm text-red-600 flex items-center">
+                              <AlertCircle className="mr-1 h-4 w-4" />
+                              {errors.firstName}
+                            </p>
+                          )}
+                        </div>
+                        <div>
+                          <Label htmlFor="lastName" className="text-gray-700">
+                            Last Name *
+                          </Label>
+                          <Input 
+                            id="lastName" 
+                            name="lastName"
+                            type="text" 
+                            value={formData.lastName}
+                            onChange={handleInputChange}
+                            onBlur={() => handleBlur('lastName')}
+                            placeholder="Enter your last name (e.g., Doe)"
+                            className={`mt-1 ${errors.lastName && touched.lastName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                            aria-invalid={errors.lastName ? 'true' : 'false'}
+                            aria-describedby={errors.lastName ? 'lastName-error' : ''}
+                          />
+                          {errors.lastName && touched.lastName && (
+                            <p id="lastName-error" className="mt-1 text-sm text-red-600 flex items-center">
+                              <AlertCircle className="mr-1 h-4 w-4" />
+                              {errors.lastName}
+                            </p>
+                          )}
+                        </div>
+                      </div>
 
-            {/* Contact Form */}
-            <div>
-              <Card className="border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary flex items-center">
-                    <MessageSquare className="mr-2 h-5 w-5" />
-                    Send Us a Message
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName" className="text-gray-700">
-                          First Name *
+                        <Label htmlFor="email" className="text-gray-700">
+                          Email Address *
                         </Label>
                         <Input 
-                          id="firstName" 
-                          name="firstName"
-                          type="text" 
-                          value={formData.firstName}
+                          id="email" 
+                          name="email"
+                          type="email" 
+                          value={formData.email}
                           onChange={handleInputChange}
-                          onBlur={() => handleBlur('firstName')}
-                          placeholder="Enter your first name (e.g., John)"
-                          className={`mt-1 ${errors.firstName && touched.firstName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                          aria-invalid={errors.firstName ? 'true' : 'false'}
-                          aria-describedby={errors.firstName ? 'firstName-error' : ''}
+                          onBlur={() => handleBlur('email')}
+                          placeholder="Enter your email address"
+                          className={`mt-1 ${errors.email && touched.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                          aria-invalid={errors.email ? 'true' : 'false'}
+                          aria-describedby={errors.email ? 'email-error' : ''}
                         />
-                        {errors.firstName && touched.firstName && (
-                          <p id="firstName-error" className="mt-1 text-sm text-red-600 flex items-center">
+                        {errors.email && touched.email && (
+                          <p id="email-error" className="mt-1 text-sm text-red-600 flex items-center">
                             <AlertCircle className="mr-1 h-4 w-4" />
-                            {errors.firstName}
+                            {errors.email}
                           </p>
                         )}
                       </div>
+
                       <div>
-                        <Label htmlFor="lastName" className="text-gray-700">
-                          Last Name *
+                        <Label htmlFor="phone" className="text-gray-700">
+                          Phone Number *
                         </Label>
                         <Input 
-                          id="lastName" 
-                          name="lastName"
-                          type="text" 
-                          value={formData.lastName}
+                          id="phone" 
+                          name="phone"
+                          type="tel" 
+                          value={formData.phone}
                           onChange={handleInputChange}
-                          onBlur={() => handleBlur('lastName')}
-                          placeholder="Enter your last name (e.g., Doe)"
-                          className={`mt-1 ${errors.lastName && touched.lastName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                          aria-invalid={errors.lastName ? 'true' : 'false'}
-                          aria-describedby={errors.lastName ? 'lastName-error' : ''}
+                          onBlur={() => handleBlur('phone')}
+                          placeholder="Enter your phone number (e.g., +233244104087)"
+                          className={`mt-1 ${errors.phone && touched.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                          aria-invalid={errors.phone ? 'true' : 'false'}
+                          aria-describedby={errors.phone ? 'phone-error' : ''}
                         />
-                        {errors.lastName && touched.lastName && (
-                          <p id="lastName-error" className="mt-1 text-sm text-red-600 flex items-center">
+                        {errors.phone && touched.phone && (
+                          <p id="phone-error" className="mt-1 text-sm text-red-600 flex items-center">
                             <AlertCircle className="mr-1 h-4 w-4" />
-                            {errors.lastName}
+                            {errors.phone}
                           </p>
                         )}
                       </div>
-                    </div>
 
-                    <div>
-                      <Label htmlFor="email" className="text-gray-700">
-                        Email Address *
-                      </Label>
-                      <Input 
-                        id="email" 
-                        name="email"
-                        type="email" 
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('email')}
-                        placeholder="Enter your email address"
-                        className={`mt-1 ${errors.email && touched.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                        aria-invalid={errors.email ? 'true' : 'false'}
-                                                 aria-describedby={errors.email ? 'email-error' : ''}
-                      />
-                      {errors.email && touched.email && (
-                        <p id="email-error" className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="mr-1 h-4 w-4" />
-                          {errors.email}
-                        </p>
-                      )}
-                    </div>
+                      <div>
+                        <Label htmlFor="insuranceType" className="text-gray-700">
+                          Insurance Type *
+                        </Label>
+                        <select 
+                          id="insuranceType" 
+                          name="insuranceType"
+                          value={formData.insuranceType}
+                          onChange={handleInputChange}
+                          onBlur={() => handleBlur('insuranceType')}
+                          className={`w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${errors.insuranceType && touched.insuranceType ? 'border-red-500 focus:ring-red-500' : ''}`}
+                          aria-invalid={errors.insuranceType ? 'true' : 'false'}
+                          aria-describedby={errors.insuranceType ? 'insuranceType-error' : ''}
+                        >
+                          <option value="">Select insurance type</option>
+                          <option value="motor">Motor Insurance</option>
+                          <option value="health">Health Insurance</option>
+                          <option value="life">Life Insurance</option>
+                          <option value="commercial">Commercial Insurance</option>
+                          <option value="travel">Travel Insurance</option>
+                          <option value="property">Property Insurance</option>
+                          <option value="other">Other</option>
+                        </select>
+                        {errors.insuranceType && touched.insuranceType && (
+                          <p id="insuranceType-error" className="mt-1 text-sm text-red-600 flex items-center">
+                            <AlertCircle className="mr-1 h-4 w-4" />
+                            {errors.insuranceType}
+                          </p>
+                        )}
+                      </div>
 
-                    <div>
-                      <Label htmlFor="phone" className="text-gray-700">
-                        Phone Number *
-                      </Label>
-                      <Input 
-                        id="phone" 
-                        name="phone"
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('phone')}
-                        placeholder="Enter your phone number (e.g., +233244104087)"
-                        className={`mt-1 ${errors.phone && touched.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                        aria-invalid={errors.phone ? 'true' : 'false'}
-                                                 aria-describedby={errors.phone ? 'phone-error' : ''}
-                      />
-                      {errors.phone && touched.phone && (
-                        <p id="phone-error" className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="mr-1 h-4 w-4" />
-                          {errors.phone}
-                        </p>
-                      )}
-                    </div>
+                      <div>
+                        <Label htmlFor="preferredContact" className="text-gray-700">
+                          Preferred Contact Method *
+                        </Label>
+                        <select 
+                          id="preferredContact" 
+                          name="preferredContact"
+                          value={formData.preferredContact}
+                          onChange={handleInputChange}
+                          onBlur={() => handleBlur('preferredContact')}
+                          className={`w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${errors.preferredContact && touched.preferredContact ? 'border-red-500 focus:ring-red-500' : ''}`}
+                          aria-invalid={errors.preferredContact ? 'true' : 'false'}
+                          aria-describedby={errors.preferredContact ? 'preferredContact-error' : ''}
+                        >
+                          <option value="">Select preferred contact method</option>
+                          <option value="phone">Phone Call</option>
+                          <option value="sms">SMS</option>
+                          <option value="whatsapp">WhatsApp</option>
+                          <option value="email">Email</option>
+                        </select>
+                        {errors.preferredContact && touched.preferredContact && (
+                          <p id="preferredContact-error" className="mt-1 text-sm text-red-600 flex items-center">
+                            <AlertCircle className="mr-1 h-4 w-4" />
+                            {errors.preferredContact}
+                          </p>
+                        )}
+                      </div>
 
-                    <div>
-                      <Label htmlFor="insuranceType" className="text-gray-700">
-                        Insurance Type *
-                      </Label>
-                      <select 
-                        id="insuranceType" 
-                        name="insuranceType"
-                        value={formData.insuranceType}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('insuranceType')}
-                        className={`w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${errors.insuranceType && touched.insuranceType ? 'border-red-500 focus:ring-red-500' : ''}`}
-                        aria-invalid={errors.insuranceType ? 'true' : 'false'}
-                                                 aria-describedby={errors.insuranceType ? 'insuranceType-error' : ''}
-                      >
-                        <option value="">Select insurance type</option>
-                        <option value="motor">Motor Insurance</option>
-                        <option value="health">Health Insurance</option>
-                        <option value="life">Life Insurance</option>
-                        <option value="commercial">Commercial Insurance</option>
-                        <option value="travel">Travel Insurance</option>
-                        <option value="property">Property Insurance</option>
-                        <option value="other">Other</option>
-                      </select>
-                      {errors.insuranceType && touched.insuranceType && (
-                        <p id="insuranceType-error" className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="mr-1 h-4 w-4" />
-                          {errors.insuranceType}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <Label htmlFor="preferredContact" className="text-gray-700">
-                        Preferred Contact Method *
-                      </Label>
-                      <select 
-                        id="preferredContact" 
-                        name="preferredContact"
-                        value={formData.preferredContact}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('preferredContact')}
-                        className={`w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${errors.preferredContact && touched.preferredContact ? 'border-red-500 focus:ring-red-500' : ''}`}
-                        aria-invalid={errors.preferredContact ? 'true' : 'false'}
-                                                 aria-describedby={errors.preferredContact ? 'preferredContact-error' : ''}
-                      >
-                        <option value="">Select preferred contact method</option>
-                        <option value="phone">Phone Call</option>
-                        <option value="sms">SMS</option>
-                        <option value="whatsapp">WhatsApp</option>
-                        <option value="email">Email</option>
-                      </select>
-                      {errors.preferredContact && touched.preferredContact && (
-                        <p id="preferredContact-error" className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="mr-1 h-4 w-4" />
-                          {errors.preferredContact}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <Label htmlFor="message" className="text-gray-700">
-                        Message *
-                      </Label>
-                      <Textarea 
-                        id="message" 
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('message')}
-                        placeholder="Tell us about your insurance needs, questions, or requirements... (minimum 10 characters)"
-                        className={`mt-1 min-h-[120px] ${errors.message && touched.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                        aria-invalid={errors.message ? 'true' : 'false'}
-                                                 aria-describedby={errors.message ? 'message-error' : ''}
-                      />
-                      {errors.message && touched.message && (
-                        <p id="message-error" className="mt-1 text-sm text-red-600 flex items-center">
-                          <AlertCircle className="mr-1 h-4 w-4" />
-                          {errors.message}
-                        </p>
-                      )}
-                      <p className="mt-1 text-xs text-gray-500">
-                        {formData.message.length}/1000 characters
-                      </p>
-                    </div>
-
-                    {/* Status Messages */}
-                    {submitStatus === 'success' && (
-                      <div className="p-4 bg-green-50 border border-green-200 rounded-md" role="alert">
-                        <p className="text-green-800 text-sm flex items-center">
-                          <CheckCircle className="mr-2 h-4 w-4" />
-                          Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+                      <div>
+                        <Label htmlFor="message" className="text-gray-700">
+                          Message *
+                        </Label>
+                        <Textarea 
+                          id="message" 
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          onBlur={() => handleBlur('message')}
+                          placeholder="Tell us about your insurance needs, questions, or requirements... (minimum 10 characters)"
+                          className={`mt-1 min-h-[120px] ${errors.message && touched.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                          aria-invalid={errors.message ? 'true' : 'false'}
+                          aria-describedby={errors.message ? 'message-error' : ''}
+                        />
+                        {errors.message && touched.message && (
+                          <p id="message-error" className="mt-1 text-sm text-red-600 flex items-center">
+                            <AlertCircle className="mr-1 h-4 w-4" />
+                            {errors.message}
+                          </p>
+                        )}
+                        <p className="mt-1 text-xs text-gray-500">
+                          {formData.message.length}/1000 characters
                         </p>
                       </div>
-                    )}
 
-                    {submitStatus === 'error' && (
-                      <div className="p-4 bg-red-50 border border-red-200 rounded-md" role="alert">
-                        <p className="text-red-800 text-sm flex items-center">
-                          <AlertCircle className="mr-2 h-4 w-4" />
-                          Unable to send message automatically. Please contact us directly at +233 244 104 087 or email info@agilebrokersgh.com
-                        </p>
-                      </div>
-                    )}
+                      {/* Status Messages */}
+                      {submitStatus === 'success' && (
+                        <motion.div 
+                          className="p-4 bg-green-50 border border-green-200 rounded-md" 
+                          role="alert"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <p className="text-green-800 text-sm flex items-center">
+                            <CheckCircle className="mr-2 h-4 w-4" />
+                            Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+                          </p>
+                        </motion.div>
+                      )}
 
-                    <Button 
-                      type="submit" 
-                      disabled={isSubmitting || hasErrors}
-                      className="w-full bg-primary hover:bg-primary/90 text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                      aria-describedby={hasErrors ? 'form-errors' : ''}
-                    >
-                      <Send className="mr-2 h-4 w-4" />
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                    </Button>
+                      {submitStatus === 'error' && (
+                        <motion.div 
+                          className="p-4 bg-red-50 border border-red-200 rounded-md" 
+                          role="alert"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <p className="text-red-800 text-sm flex items-center">
+                            <AlertCircle className="mr-2 h-4 w-4" />
+                            Unable to send message automatically. Please contact us directly at +233 244 104 087 or email info@agilebrokersgh.com
+                          </p>
+                        </motion.div>
+                      )}
 
-                    <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded-md">
-                      <p className="font-medium mb-1">💡 Helpful tips:</p>
-                      <ul className="space-y-1">
-                        <li>• Include specific details about your insurance needs in your message</li>
-                        <li>• Mention any existing policies or coverage requirements</li>
-                        <li>• Let us know your preferred contact time if you choose phone/SMS</li>
-                        <li>• We&apos;ll respond within 24 hours during business days</li>
-                      </ul>
-                    </div>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Button 
+                          type="submit" 
+                          disabled={isSubmitting || hasErrors}
+                          className="w-full bg-primary hover:bg-primary/90 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                          aria-describedby={hasErrors ? 'form-errors' : ''}
+                        >
+                          <Send className="mr-2 h-4 w-4" />
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                        </Button>
+                      </motion.div>
 
-                    {hasErrors && (
-                      <div id="form-errors" className="p-3 bg-red-50 border border-red-200 rounded-md">
-                        <p className="text-red-800 text-sm font-medium mb-2">
-                          Please fix the following field errors before submitting:
-                        </p>
-                        <ul className="text-red-700 text-sm space-y-1">
-                          {Object.entries(errors).map(([field, error]) => {
-                            const fieldLabels: Record<string, string> = {
-                              firstName: 'First Name',
-                              lastName: 'Last Name',
-                              email: 'Email Address',
-                              phone: 'Phone Number',
-                              insuranceType: 'Insurance Type',
-                              preferredContact: 'Preferred Contact Method',
-                              message: 'Message'
-                            };
-                            return (
-                              <li key={field} className="flex items-center">
-                                <AlertCircle className="mr-1 h-3 w-3 flex-shrink-0" />
-                                <span><strong>{fieldLabels[field]}:</strong> {error}</span>
-                              </li>
-                            );
-                          })}
+                      <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded-md">
+                        <p className="font-medium mb-1">💡 Helpful tips:</p>
+                        <ul className="space-y-1">
+                          <li>• Include specific details about your insurance needs in your message</li>
+                          <li>• Mention any existing policies or coverage requirements</li>
+                          <li>• Let us know your preferred contact time if you choose phone/SMS</li>
+                          <li>• We&apos;ll respond within 24 hours during business days</li>
                         </ul>
                       </div>
-                    )}
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+
+                      {hasErrors && (
+                        <motion.div 
+                          id="form-errors" 
+                          className="p-3 bg-red-50 border border-red-200 rounded-md"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <p className="text-red-800 text-sm font-medium mb-2">
+                            Please fix the following field errors before submitting:
+                          </p>
+                          <ul className="text-red-700 text-sm space-y-1">
+                            {Object.entries(errors).map(([field, error]) => {
+                              const fieldLabels: Record<string, string> = {
+                                firstName: 'First Name',
+                                lastName: 'Last Name',
+                                email: 'Email Address',
+                                phone: 'Phone Number',
+                                insuranceType: 'Insurance Type',
+                                preferredContact: 'Preferred Contact Method',
+                                message: 'Message'
+                              };
+                              return (
+                                <li key={field} className="flex items-center">
+                                  <AlertCircle className="mr-1 h-3 w-3 flex-shrink-0" />
+                                  <span><strong>{fieldLabels[field]}:</strong> {error}</span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </form>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+      {/* Map Section with Animation */}
+      <motion.section 
+        className="py-16 bg-gray-50 relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Background Pattern with Parallax */}
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            y: useTransform(scrollYProgress, [0, 1], [0, -150])
+          }}
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+            style={{
+              backgroundImage: "url('/Images/marine insurance.png')"
+            }}
+          />
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
             <p className="text-lg text-gray-600">
               Visit our office at Adenta for a face-to-face consultation.
             </p>
-          </div>
+          </motion.div>
           
           {/* Google Maps Embed */}
-          <div className="rounded-lg overflow-hidden shadow-lg">
+          <motion.div 
+            className="rounded-lg overflow-hidden shadow-lg"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.962226379537!2d-0.1567539!3d5.7141393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9d657dec04e9%3A0xaea9967536950837!2sRomick%20plaza!5e0!3m2!1sen!2sgh!4v1691868482711!5m2!1sen!2sgh" 
               width="100%" 
@@ -622,22 +924,30 @@ ${formData.message}
               referrerPolicy="no-referrer-when-downgrade"
               title="Agile Insurance Brokers - Romick Plaza, Adenta"
             />
-          </div>
+          </motion.div>
           
           {/* View on Google Maps Link */}
-          <div className="text-center mt-4">
-            <a 
+          <motion.div 
+            className="text-center mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            <motion.a 
               href="https://maps.google.com/maps?q=Romick+Plaza,+Kweku+Boi+Street,+Adenta,+Ghana"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <MapPin className="mr-2 h-5 w-5" />
               View on Google Maps
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 } 
